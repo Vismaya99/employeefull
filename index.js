@@ -53,18 +53,7 @@ app.get('/',(req,res)=>{
 
 
 
-//TODO: get single data from db  using api '/api/employeelist/:id'
-
-// app.get('/api/employeelist/:id',(req,res)=>{
-//     var id=req.params.id;
-//     employeeModel.findById({_id:id},function(err,data){
-//         if (err) {
-//             res.json(err);
-//         } else {
-//             res.json(data);
-//         }
-//     })
-// });  
+ 
 
 app.post('/login',async(req,res)=>{
     try {
@@ -86,29 +75,14 @@ app.post('/login',async(req,res)=>{
 
 
 
-//TODO: send data from db using api '/api/employeelist'
-//Request body format:{name:'',location:'',position:'',salary:''}
 
-app.post('/api/employeelist',(req,res)=>{
-    var data=req.body;
-    var employee=new employeeModel(data);
-    employee.save(
-        (err,data)=>{
-            if (err) {
-                res.json({"status":"error","error":err})
-            } else {
-              res.json({"status":"success","data":data})  
-            }
-        }
-    );
-})
 
 
 
 
 //TODO: delete a employee data from db by using api '/api/employeelist/:id'
 
-app.delete('/api/employeelist/:id',(req,res)=>{
+app.delete('/delete',(req,res)=>{
    
     
     var id=req.params.id;
@@ -144,10 +118,6 @@ app.put('/edit',(req,res)=>{
     )}
    ) 
 
-// //! dont delete this code. it connects the front end file.
-// app.get('/*', function (req, res) {
-//     res.sendFile(path.join(__dirname + '/dist/Frontend/index.html'));
-// });
 
 
 app.listen(4000,()=>{
